@@ -17,3 +17,19 @@ app.get("/api/notes", (req, res) => {
 app.listen(5001, () => {
     console.log("App works on 5001")
 });
+
+app.post("/api/notes", (req, res) => {
+    res.status(201).json({ message: "Note created" });
+});
+// status code 201 means something created. 
+
+app.put("/api/notes/", (req, res) => {
+    res.json({ message: "Note updated" });
+});
+// put is used to update something that already exists
+
+app.delete("/api/notes/:id", (req, res) => {
+    res.json({ message: "Note deleted" });
+});
+
+
