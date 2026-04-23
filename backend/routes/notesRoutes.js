@@ -1,0 +1,28 @@
+import express from "express";
+
+const router = express.Router();
+
+// The reason only "/" is used in the below routes is becauser in
+// server.js, I created app.use("/api/notes", notesRouter), so now I simply need to type "/" and it replaces it with "/api/notesrouter"
+
+router.get("/", (req, res) => {
+    res.status(200).send("Here's your notes");
+});
+// above, req is the request, res is the response. We send a response back to the client with res.send()
+// req is what we (or the server) receives from the client, res is what we send back to the client
+// the client/browser/react app sends request data to the server endpoint (api/notes) and the server responds with a message ("This path works")
+// the api in this case is the code that we write on the server to handle requests from the client.
+
+router.post("/", (req, res) => {
+    res.status(201).json({ message: "Note created" });
+});
+// status code 201 means something created. 
+
+router.put("/:id", (req, res) => {
+    res.json({ message: "Note updated" });
+});
+// put is used to update something that already exists
+
+router.delete("/:id", (req, res) => {
+    res.json({ message: "Note deleted" });
+});

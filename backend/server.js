@@ -3,33 +3,21 @@
 import express from "express";
 // Uusually the above is: const express = require('express')
 
+import notesRoutes from "./routes/notesRoutes.js";
+// connect this file to the notesRoutes file
+
 const app = express();
 
-app.get("/api/notes", (req, res) => {
-    res.send("This path works");
-});
-// above, req is the request, res is the response. We send a response back to the client with res.send()
-// req is what we (or the server) receives from the client, res is what we send back to the client
-// the client/browser/react app sends request data to the server endpoint (api/notes) and the server responds with a message ("This path works")
-// the api in this case is the code that we write on the server to handle requests from the client.
-
+app.use("/api/notes", notesRoutes);
+// because "api/notes" is common in all the below routes, I am saying to use that in notesRoutes
+// ("what I want to take and implement", [in this file]) 
 
 app.listen(5001, () => {
     console.log("App works on 5001")
 });
 
-app.post("/api/notes", (req, res) => {
-    res.status(201).json({ message: "Note created" });
-});
-// status code 201 means something created. 
 
-app.put("/api/notes/", (req, res) => {
-    res.json({ message: "Note updated" });
-});
-// put is used to update something that already exists
 
-app.delete("/api/notes/:id", (req, res) => {
-    res.json({ message: "Note deleted" });
-});
+
 
 
