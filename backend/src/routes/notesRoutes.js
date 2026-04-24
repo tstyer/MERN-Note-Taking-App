@@ -1,5 +1,5 @@
 import express from "express";
-import { createNote, getAllNotes, updateNote } from "../controllers/notesControllers.js";
+import { createNote, getAllNotes, updateNote, deleteNote } from "../controllers/notesControllers.js";
 
 const router = express.Router();
 
@@ -18,6 +18,5 @@ router.post("/", createNote);
 router.put("/:id", updateNote);
 // put is used to update something that already exists
 
-router.delete("/:id", (req, res) => {
-    res.json({ message: "Note deleted" });
-});
+router.delete("/:id", deleteNote);
+// delete is used to delete something that already exists
