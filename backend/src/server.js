@@ -13,7 +13,7 @@ import express from "express";
 // Uusually the above is: const express = require('express')
 
 import notesRoutes from "./routes/notesRoutes.js";
-// connect this file to the notesRoutes file
+// this type of import asks to import the export default from notesRoutes.js
 
 const app = express();
 
@@ -36,6 +36,7 @@ app.use("/api/notes", notesRoutes);
 
 
 // === About Section === //
+
 
 
 

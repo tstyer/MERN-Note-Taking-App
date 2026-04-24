@@ -20,3 +20,5 @@ router.put("/:id", updateNote);
 
 router.delete("/:id", deleteNote);
 // delete is used to delete something that already exists
+
+export default router;
