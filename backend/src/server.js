@@ -9,19 +9,30 @@
 
 // === Imports === //
 
+import dotenv from "dotenv";
+dotenv.config(); // dotenv.config() is a method from dotenv that basically defines that values in the console. 
+// this value would be the MONGO_URI value in the .env file. if you don't add dotenv.config(), then it will run, but you wont see the value of it in the console. 
+
 import express from "express";
 // Uusually the above is: const express = require('express')
 
+const PORT = process.env.PORT || 5001;
+// this is saying to use the PORT value in the .env file, but if it doesn't exist, then use 5001. This is important because when you deploy your app, the hosting service will usually provide a PORT value for you to use.
+
 import notesRoutes from "./routes/notesRoutes.js";
-// this type of import asks to import the export default from notesRoutes.js
+// this type of import asks to import the "export default" from notesRoutes.js
+
+import { connectDB } from "../config/db.js";
+
+// call the below method because it connects to database
+connectDB();
 
 const app = express();
 
-
 // === Basic server testing === //
 
-app.listen(5001, () => {
-    console.log("App works on 5001")
+app.listen(PORT, () => {
+console.log("App works on port:" + " " + PORT);
 });
 
 
