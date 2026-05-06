@@ -47,5 +47,9 @@ To test this on Postman, you need to create the data in postman - which will be 
 
 I sent the post request to the same url, since the notes page is where users will also create their notes. 
 
+In my MongoDB account, the evidence for the POST request also shows:
+
+![Screenshot of Mongo](./readme_images/postman/mongo_db_post_req_evidence.png)
+
 
 
