@@ -29,6 +29,9 @@ connectDB();
 
 const app = express();
 
+// middleware
+app.use(express.json()); // this is saying to use the express.json() middleware, which allows us to parse JSON data in the request body. This is important because when we send a POST request to create a note, we will be sending JSON data in the request body.
+
 // === Basic server testing === //
 
 app.listen(PORT, () => {
