@@ -1,5 +1,14 @@
-export const getAllNotes = (req, res) => {
-    res.status(200).send("Here's your notes");
+import Note from "../models/Note.js";
+
+export async function getAllNotes = (req, res) => {
+
+    try {
+        const notes = await Note.find(); // note.find() gives you all the notes.
+        res.status(200).json(notes);
+    } catch (error) {
+        console.error("Error in 'getAllNotes' controller/function"); // For degubbing purposes, put the error in the console.
+        res.status(500).json({ message: "Could not get notes"});
+    }
 };
 
 export const createNote = (req, res) => {
