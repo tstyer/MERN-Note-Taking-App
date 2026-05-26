@@ -10,6 +10,16 @@ export async function getAllNotes(req, res) {
     }
 };
 
+export async function getSpecificNote(req, res) {
+    try {
+        const aNote = await Note.findById(req.params.id); // note.find() gives you all the notes.
+        res.status(200).json(aNote);
+    } catch (error) {
+        console.error("Error in 'getSpecificNote' controller/function"); // For degubbing purposes, put the error in the console.
+        res.status(500).json({ message: "Could not get note"});
+    }
+};
+
 export async function createNote(req, res) {
     // when thinking of creating something: so the user wants to pass a Title and Content
     try {

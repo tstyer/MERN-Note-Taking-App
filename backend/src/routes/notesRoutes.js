@@ -1,5 +1,5 @@
 import express from "express";
-import { createNote, getAllNotes, updateNote, deleteNote } from "../controllers/notesControllers.js";
+import { createNote, getAllNotes, getSpecificNote, updateNote, deleteNote } from "../controllers/notesControllers.js";
 
 const router = express.Router();
 
@@ -11,6 +11,8 @@ router.get("/", getAllNotes);
 // req is what we (or the server) receives from the client, res is what we send back to the client
 // the client/browser/react app sends request data to the server endpoint (api/notes) and the server responds with a message ("This path works")
 // the api in this case is the code that we write on the server to handle requests from the client.
+
+router.get("/:id", getSpecificNote);
 
 router.post("/", createNote);
 // status code 201 means something created. 
