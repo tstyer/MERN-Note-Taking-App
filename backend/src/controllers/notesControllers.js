@@ -2,7 +2,8 @@ import Note from "../models/Note.js";
 
 export async function getAllNotes(req, res) {
     try {
-        const notes = await Note.find(); // note.find() gives you all the notes.
+        const notes = (await Note.find().Sort({createdAt: -1})) // note.find() gives you all the notes.
+        // sort method to show the most recently created notes first because '-1' shows in descending order: latest date and times is highest number
         res.status(200).json(notes);
     } catch (error) {
         console.error("Error in 'getAllNotes' controller/function"); // For degubbing purposes, put the error in the console.
@@ -13,7 +14,11 @@ export async function getAllNotes(req, res) {
 export async function getSpecificNote(req, res) {
     try {
         const aNote = await Note.findById(req.params.id); // note.find() gives you all the notes.
-        res.status(200).json(aNote);
+        if (!aNote) {
+            res.status(404).jason({message: "Note not found"});
+        } else {
+            res.status(200).json(aNote);
+        }
     } catch (error) {
         console.error("Error in 'getSpecificNote' controller/function"); // For degubbing purposes, put the error in the console.
         res.status(500).json({ message: "Could not get note"});
