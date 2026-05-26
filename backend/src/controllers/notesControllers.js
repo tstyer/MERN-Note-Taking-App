@@ -11,7 +11,7 @@ export async function getAllNotes(req, res) {
 };
 
 export async function createNote(req, res) {
-    // when thinking of creating something - what are you creating? Note - so the user wants to pass a Title and Content
+    // when thinking of creating something: so the user wants to pass a Title and Content
     try {
         const {title, content} = req.body;
         const note = new Note({title:title, content:content}) // since the key and const values are the same, you can shorten to const newNote = new Note({titel, content})
@@ -24,10 +24,33 @@ export async function createNote(req, res) {
     }
 };
 
-export const updateNote = (req, res) => {
-    res.json({ message: "Note updated" });
+export async function updateNote(req, res) {
+    try {
+        const { title, content } = req.body;
+        const updatedNoted = await Note.findByIdAndUpdate(req.params.id, {title, content}); // re.params.id collects the id from the url. 'id' matches ':id' in the notesroutes.js file for put. 
+        if(!updateNote) {
+            res.status(404).json({message: "Note not found"});
+        }
+
+        res.status(200).json({message: "Updated successfuly"});
+
+    } catch (error) {
+        console.error("Not able to update note");
+        res.status(500).json({ "message": "Could not update note"});
+    }
 };
 
-export const deleteNote = (req, res) => {
-    res.json({ message: "Note deleted" });
+export async function deleteNote(req, res) {
+    try {
+        const deletedNote = await Note.findByIdAndDelete(req.params.id);
+        if(!deletedNote) {
+            res.status(404).json({message: "Note not found"});
+        }
+
+        res.status(200).json({mesage: "Note deleted"});
+
+    } catch (error) {
+        console.error("Not able to delete note");
+        res.status(500).json({ "message": "Could not delete note"});
+    }
 };
