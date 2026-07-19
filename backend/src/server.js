@@ -10,8 +10,9 @@
 // === Imports === //
 
 import dotenv from "dotenv";
-dotenv.config(); // dotenv.config() is a method from dotenv that basically defines that values in the console. 
+dotenv.config(); // dotenv.config() is a method from dotenv that basically defines the value.
 // this value would be the MONGO_URI value in the .env file. if you don't add dotenv.config(), then it will run, but you wont see the value of it in the console. 
+// I needed to import dotenv into this file and use dotenv.config() because I have a function here - connectDB() which uses a value in the .env file. 
 
 import express from "express";
 // Uusually the above is: const express = require('express')
@@ -24,17 +25,18 @@ import notesRoutes from "./routes/notesRoutes.js";
 
 import { connectDB } from "../config/db.js";
 
-// call the below method because it connects to database
+// call the below method. this method created in config simply gives me a console message if db connected successfuly or not. 
 connectDB();
 
 const app = express();
+const port = process.env.PORT() || 5001;
 
 // middleware
 app.use(express.json()); // this is saying to use the express.json() middleware, which allows us to parse JSON data in the request body. This is important because when we send a POST request to create a note, we will be sending JSON data in the request body.
 
 // === Basic server testing === //
 
-app.listen(PORT, () => {
+app.listen(port, () => {
 console.log("App works on port:" + " " + PORT);
 });
 

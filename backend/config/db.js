@@ -1,4 +1,5 @@
 // Here I create a function to connect to the database using mongoose
+// all the function does is show a console log if db connection success or fail
 
 import mongoose from 'mongoose';
 
