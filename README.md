@@ -1,6 +1,9 @@
 ﻿# MERN: Full-Stack Note-Taking App
 
-## Installing Node.js
+
+## BACKEND
+
+### Installing Node.js
 
 To begin, after installing node.js, I initiallsed it by first entering the backend folder with 'CD backend'. 
 Then, I typed 'npm init -y' to initialise node and retrieve a package.json file.
@@ -16,17 +19,17 @@ For example, I set "dev": "node server.js", so whenever I run "npm run dev" in t
 
 
 
-## PostMan
+### PostMan
 
-### What is it?
+#### What is it?
 
-### Why use it?
+#### Why use it?
 
-### How to install PostMan
+#### How to install PostMan
 
 First, head over to https://www.postman.com/ and download for either Windows or Mac. 
 
-### Testing Requests w/PostMan
+#### Testing Requests w/PostMan
 
 First, you need to select a new request. This is a '+' icon featured somewhere on the left. The, choose HTTP.
 
@@ -51,5 +54,22 @@ In my MongoDB account, the evidence for the POST request also shows:
 
 ![Screenshot of Mongo](./readme_images/postman/mongo_db_post_req_evidence.png)
 
+
+### MongoDB
+
+This is my first time using MongoDB.
+
+It is... 
+- A NoSQL database. 
+- It stores data "documents" in a json-like format, suing key: value pairs. 
+- Each document has it's own ID at the very top to identify it.
+- Each dococument is stored in a collection, which is a collection of related documents. 
+- You can store documents within documents. This will be needed to store, for example, side notes within the main note for that day. 
+
+#### IP Access
+
+I chose to access from any IP address while in development because I don't want any errors to show while working, as I use a VPN and the address frequently changes.
+
+![Screenshot of mongoDB IP setting](./readme_images/mongodb/ip_access_all.png)
 
 
