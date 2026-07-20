@@ -17,7 +17,7 @@ dotenv.config(); // dotenv.config() is a method from dotenv that basically defin
 import express from "express";
 // Uusually the above is: const express = require('express')
 
-const PORT = process.env.PORT || 5001;
+
 // this is saying to use the PORT value in the .env file, but if it doesn't exist, then use 5001. This is important because when you deploy your app, the hosting service will usually provide a PORT value for you to use.
 
 import notesRoutes from "./routes/notesRoutes.js";
@@ -29,7 +29,8 @@ import { connectDB } from "../config/db.js";
 connectDB();
 
 const app = express();
-const port = process.env.PORT() || 5001;
+
+const port = process.env.PORT || 5001;
 
 // middleware
 app.use(express.json()); // this is saying to use the express.json() middleware, which allows us to parse JSON data in the request body. This is important because when we send a POST request to create a note, we will be sending JSON data in the request body.
@@ -37,7 +38,7 @@ app.use(express.json()); // this is saying to use the express.json() middleware,
 // === Basic server testing === //
 
 app.listen(port, () => {
-console.log("App works on port:" + " " + PORT);
+console.log("App works on port:" + " " + port);
 });
 
 
