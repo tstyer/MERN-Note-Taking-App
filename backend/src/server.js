@@ -28,6 +28,8 @@ import { connectDB } from "../config/db.js";
 // call the below method. this method created in config simply gives me a console message if db connected successfuly or not. 
 connectDB();
 
+import { rateLimiter } from '../middleware/rateLimiter.js'; 
+
 const app = express();
 
 const port = process.env.PORT || 5001;
@@ -35,12 +37,8 @@ const port = process.env.PORT || 5001;
 
 // middleware
 app.use(express.json()); // this is saying to use the express.json() middleware, which allows us to parse JSON data in the request body. This is important because when we send a POST request to create a note, we will be sending JSON data in the request body.
-
+app.use(rateLimiter);
 // middleware gives details on the types of requests sent to the server and the url's. 
-app.use((req, res, next) => {
-    console.log("Request received." + " " + "Req method is" + " " + `{req.method}`);
-    next();
-});
 
 
 // === Basic server testing === //
