@@ -73,3 +73,7 @@ I chose to access from any IP address while in development because I don't want 
 ![Screenshot of mongoDB IP setting](./readme_images/mongodb/ip_access_all.png)
 
 
+### Upstash
+
+Used 'Redis' for low-latency, key-value storing. 
+
