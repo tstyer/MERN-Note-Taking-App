@@ -26,7 +26,7 @@ import notesRoutes from "./routes/notesRoutes.js";
 import { connectDB } from "../config/db.js";
 
 // call the below method. this method created in config simply gives me a console message if db connected successfuly or not. 
-connectDB();
+
 
 import { rateLimiter } from '../middleware/rateLimiter.js'; 
 
@@ -43,9 +43,12 @@ app.use(rateLimiter);
 
 // === Basic server testing === //
 
-app.listen(port, () => {
-console.log("App works on port:" + " " + port);
-});
+connectDB().then( () => {
+      app.listen(port, () => {
+      console.log("App works on port:" + " " + port);
+    });
+}); // once the database is connected, then you should start the server
+
 
 
 // === Notes Section === //
