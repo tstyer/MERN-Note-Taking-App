@@ -93,4 +93,13 @@ To install, I navigated to the version selection at the top left and chose v4.
 From there, I selected 'How to use', and then selected the NPM install code to paste into the terminal, but adding '@4.12.24' appended. 
 
 
+### React-Hot-Toast
+
+
+
+### Lucide-React
+
+### Axios
+
+
 

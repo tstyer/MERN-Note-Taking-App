@@ -1,9 +1,11 @@
 import React from 'react';
+import NavBar from '../components/NavBar';
+
 
 const HomePage = () => {
   return (
-    <div data-theme="retro">
-      <button className="btn">Button</button>
+    <div data-theme="retro" className="min-h-screen">
+      <NavBar />
     </div>
   )
 }
