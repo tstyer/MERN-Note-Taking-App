@@ -77,3 +77,20 @@ I chose to access from any IP address while in development because I don't want 
 
 Used 'Redis' for low-latency, key-value storing. 
 
+---
+
+## FRONTEND
+
+### DaisyUI
+
+- Tailwind Component Library
+
+- DaisyUI reduces the amount of Tailwind Classes you would need to type code to ge the same result. 
+
+For this, I used version 4.12.24 as it is more secure than the latest. 
+
+To install, I navigated to the version selection at the top left and chose v4.
+From there, I selected 'How to use', and then selected the NPM install code to paste into the terminal, but adding '@4.12.24' appended. 
+
+
+
