@@ -13,7 +13,7 @@ export default {
     daisyui 
   ],
   daisyui: {
-    themes: ["retro"]
+    themes: ["light", "dark", "retro"]
   },
 
 }

@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 const HomePage = () => {
   return (
     <div data-theme="retro">
-      <Button className="btn">Button</Button>
+      <button className="btn">Button</button>
     </div>
   )
 }
