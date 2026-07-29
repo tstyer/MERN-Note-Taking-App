@@ -9,6 +9,8 @@
 
 // === Imports === //
 
+
+
 import dotenv from "dotenv";
 dotenv.config(); // dotenv.config() is a method from dotenv that basically defines the value.
 // this value would be the MONGO_URI value in the .env file. if you don't add dotenv.config(), then it will run, but you wont see the value of it in the console. 
@@ -18,6 +20,7 @@ import express from "express";
 // Uusually the above is: const express = require('express')
 
 import cors from "cors";
+
 
 // this is saying to use the PORT value in the .env file, but if it doesn't exist, then use 5001. This is important because when you deploy your app, the hosting service will usually provide a PORT value for you to use.
 
@@ -37,9 +40,10 @@ const port = process.env.PORT || 5001;
 
 
 // middleware
+app.use(cors());
 app.use(express.json()); // this is saying to use the express.json() middleware, which allows us to parse JSON data in the request body. This is important because when we send a POST request to create a note, we will be sending JSON data in the request body.
 app.use(rateLimiter);
-app.use(cors());
+
 // middleware gives details on the types of requests sent to the server and the url's. 
 
 
