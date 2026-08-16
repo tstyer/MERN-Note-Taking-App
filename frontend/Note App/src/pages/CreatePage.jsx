@@ -14,7 +14,7 @@ const CreatePage = () => {
       <div className='mx-auto px-4 py-8'>
           <div className='mx-w-2xl mx-auto'>
             <Link to={"/"} className='btn btn-ghost mb-6'>
-              <ArrowUpLeftIcon className='size-5'></ArrowUpLeftIcon>
+              <ArrowUpLeftIcon className='size-5'>Back To Notes</ArrowUpLeftIcon>
             </Link>
                   
           </div>
