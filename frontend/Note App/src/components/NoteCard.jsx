@@ -7,7 +7,7 @@ const NoteCard = ({note}) => {
   return (
     <Link to={`/note/${note._id}`}
         className='card
-        bg-base-100
+        bg-accent
         hover:shadow-lg
         transition-all
         duration-200
@@ -26,7 +26,7 @@ const NoteCard = ({note}) => {
                 <div className='flex items-center gap-1'>
                     <PenSquareIcon className='size-4'></PenSquareIcon>
                     <button className='btn btn-ghost btn-xs text-error'>
-                        <Trash2Icon className='size-4'></Trash2Icon>
+                        <Trash2Icon className='size-4 text-black'></Trash2Icon>
                     </button>
                 </div>
             </div>
