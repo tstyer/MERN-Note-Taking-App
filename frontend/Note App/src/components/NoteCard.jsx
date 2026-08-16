@@ -1,6 +1,7 @@
 import { Link } from 'react-router'
 import { PenSquareIcon, Trash2Icon } from 'lucide-react'
 import React from 'react'
+import { formatDate } from '../lib/utils/utils'
 
 const NoteCard = ({note}) => {
   return (
@@ -19,7 +20,7 @@ const NoteCard = ({note}) => {
             <p className='text-base-content/70 line-clamp-3'>{note.content}</p>
             <div className='card-actions justify-between items-center mt-4'>
                 <span className='text-sm text-base-content/60'>
-                    {note.createdAt}
+                    {formatDate(new Date(note.createdAt))}
                 </span>
 
                 <div className='flex items-center gap-1'>
