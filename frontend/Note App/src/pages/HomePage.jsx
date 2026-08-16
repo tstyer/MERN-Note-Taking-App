@@ -22,7 +22,7 @@ const HomePage = () => {
       setIsRateLimited(false) // false because if you can get data, it's not rate limited
     } catch(error) {
       console.log("Error fetching notes")
-      if(error.response.status === 429) {
+      if(error.response?.status === 429) {
         setIsRateLimited(true);
       } else {
         toast.error("Failed to Display Notes!") 

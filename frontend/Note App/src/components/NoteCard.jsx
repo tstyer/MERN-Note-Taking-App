@@ -24,7 +24,9 @@ const NoteCard = ({note}) => {
 
                 <div className='flex items-center gap-1'>
                     <PenSquareIcon className='size-4'></PenSquareIcon>
-                    <Trash2Icon className='size-4'></Trash2Icon>
+                    <button className='btn btn-ghost btn-xs text-error'>
+                        <Trash2Icon className='size-4'></Trash2Icon>
+                    </button>
                 </div>
             </div>
 
