@@ -1,11 +1,10 @@
-import { Link } from 'lucide-react'
+import { Link } from 'react-router'
 import React from 'react'
 
-const NoteCard = () => {
+const NoteCard = ({note}) => {
   return (
-    <Link> {/* need to use a link and not a div because when you link the card it takes to to its own page */}
-      
-    </Link>
+    <Link to={`/note/${note._id}`}>NoteCard</Link>
+  
   )
 }
 
