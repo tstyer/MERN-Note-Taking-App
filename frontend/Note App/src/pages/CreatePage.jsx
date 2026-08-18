@@ -28,6 +28,13 @@ const CreatePage = () => {
                     <label className='label'>
                       <span className='label-text'>Title</span>
                     </label>
+
+                    <input type="text"
+                      placeholder='Note Text'
+                      className='input input-bordered'
+                      value={title}
+                      onChange={(e) => setTitle(e.title.value)}
+                    />
                   </div>
 
                 </form>
