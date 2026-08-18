@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 import { ArrowUpLeftIcon } from 'lucide-react';
-import axios from 'axios';
+import axios, { axiosinstance } from 'axios';
 import toast from 'react-hot-toast';
 
 const CreatePage = () => {
@@ -12,7 +12,7 @@ const CreatePage = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // this prevents the title and message from being deleted on a page refresh - important for usability
 
     if (!title.trim() || !content.trim()) {
       toast.error("Title and content are required!");
@@ -21,7 +21,7 @@ const CreatePage = () => {
 
     setLoading(true);
     try {
-      await axios.post("http://localhost:5001/api/notes", { title, content });
+      await axiosInstance.post("api/notes", { title, content });
       toast.success("Note created successfully!");
       navigate("/");
     } catch (error) {
