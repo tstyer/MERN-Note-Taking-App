@@ -16,6 +16,25 @@ const CreatePage = () => {
             <Link to={"/"} className='btn btn-ghost mb-6'>
               <ArrowUpLeftIcon className='size-5'>Back To Notes</ArrowUpLeftIcon>
             </Link>
+
+            <div className='card bg-base-100'>
+              <div className='body'>
+                <h2 className='card-title text-2xl mb-4'>
+                  Create New Note
+                </h2>
+
+                <form onSubmit={handleSubmit}>
+                  <div className='form-control mb-4'>
+                    <label className='label'>
+                      <span className='label-text'>Title</span>
+                    </label>
+                  </div>
+
+                </form>
+
+              </div>
+
+            </div>
                   
           </div>
       </div>

@@ -12,7 +12,7 @@ const NavBar = () => {
 
             <div className='flex items-center gap-4'>
               
-              <Link to={'/CreatePage'} className='btn btn-primary'>
+              <Link to={'/create-note'} className='btn btn-primary'>
 
                 <PlusIcon className='size-5'></PlusIcon>
                 <span>New Note</span>

@@ -13,27 +13,31 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    let ignore = false;
 
     const fetchNotes = async () => {
-    try {  
+    try {
       const response = await axios.get("http://localhost:5001/api/notes")
       console.log(response.data);
+      if (ignore) return;
       setNotes(response.data);
       setIsRateLimited(false) // false because if you can get data, it's not rate limited
     } catch(error) {
       console.log("Error fetching notes")
+      if (ignore) return;
       if(error.response?.status === 429) {
         setIsRateLimited(true);
       } else {
-        toast.error("Failed to Display Notes!") 
-      } 
-      
+        toast.error("Failed to Display Notes!")
+      }
+
     } finally {
-        setLoading(false);
+        if (!ignore) setLoading(false);
       }
     }
-    
+
     fetchNotes();
+    return () => { ignore = true; };
   }, []);
 
   return (
