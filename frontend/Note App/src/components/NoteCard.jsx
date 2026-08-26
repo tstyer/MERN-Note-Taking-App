@@ -5,7 +5,7 @@ import formatDate from '../lib/utils/utils'
 import api from '../lib/axios'
 import toast from 'react-hot-toast'
 
-const NoteCard = ({note}) => {
+const NoteCard = ({note, setNotes}) => {
 
     const handleDelete = async (e, id) => {
         e.preventDefault(); // the default when clicking the card is to go to a new page - we want to prevent that when clicking delete
@@ -15,6 +15,7 @@ const NoteCard = ({note}) => {
             // the window dropdown message will show, and if they click cancel, then window.confirm is false, so no deletion
         } try {
             await api.delete(`notes/${id}`) // need to import the api so you can send a delete req.
+            setNotes((prev) => prev.filter(note => note._id !== id))
             toast.success("Note Deleted");
         } catch (error) {
             console.log("Error in handleDelete", error);
