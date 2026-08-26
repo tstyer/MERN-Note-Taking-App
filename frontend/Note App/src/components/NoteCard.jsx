@@ -4,6 +4,14 @@ import React from 'react'
 import formatDate from '../lib/utils/utils'
 
 const NoteCard = ({note}) => {
+
+    const handleDelete = async (e, id) => {
+        e.preventDefault(); // the default when clicking the card is to go to a new page - we want to prevent that when clicking delete
+
+        if(!window.confirm("Are you sure you what to delete this message?")) {
+            return;
+        }
+    }
   return (
     <Link to={`/note/${note._id}`}
         className='card
@@ -25,7 +33,7 @@ const NoteCard = ({note}) => {
 
                 <div className='flex items-center gap-1'>
                     <PenSquareIcon className='size-4'></PenSquareIcon>
-                    <button className='btn btn-ghost btn-xs text-error'>
+                    <button className='btn btn-ghost btn-xs text-error' onClick={(e) => handleDelete(e, note._id)}>
                         <Trash2Icon className='size-4 text-black'></Trash2Icon>
                     </button>
                 </div>
