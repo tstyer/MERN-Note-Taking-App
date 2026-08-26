@@ -5,6 +5,8 @@ import NavBar from '../components/NavBar';
 import axios from 'axios'
 import toast from 'react-hot-toast';
 import NoteCard from '../components/NoteCard';
+import NotesNotFound from '../components/NotesNotFound';
+import CreatePage from './CreatePage';
 
 const HomePage = () => {
 
