@@ -2,6 +2,8 @@ import { Link } from 'react-router'
 import { PenSquareIcon, Trash2Icon } from 'lucide-react'
 import React from 'react'
 import formatDate from '../lib/utils/utils'
+import api from '../lib/axios'
+import toast from 'react-hot-toast'
 
 const NoteCard = ({note}) => {
 
@@ -10,6 +12,13 @@ const NoteCard = ({note}) => {
 
         if(!window.confirm("Are you sure you what to delete this message?")) {
             return;
+            // the window dropdown message will show, and if they click cancel, then window.confirm is false, so no deletion
+        } try {
+            await api.delete(`notes/${id}`) // need to import the api so you can send a delete req.
+            toast.success("Note Deleted");
+        } catch (error) {
+            console.log("Error in handleDelete", error);
+            toast.error("Couldn't Delete Note");
         }
     }
   return (
