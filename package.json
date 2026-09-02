@@ -1,0 +1,20 @@
+{
+  "name": "full-stack-mern-note-app",
+  "version": "1.0.0",
+  "description": "A full-stack note-taking app built with the MERN stack (MongoDB, Express, React, Node.js) — plus rate limiting, so I could learn how a real client and server talk to each other, not just how to make a to-do list.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tstyer/MERN-Note-Taking-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tstyer/MERN-Note-Taking-App/issues"
+  },
+  "homepage": "https://github.com/tstyer/MERN-Note-Taking-App#readme"
+}

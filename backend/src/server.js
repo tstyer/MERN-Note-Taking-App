@@ -31,12 +31,15 @@ import { connectDB } from "../config/db.js";
 
 // call the below method. this method created in config simply gives me a console message if db connected successfuly or not. 
 
+import path from "node:path";
 
 import { rateLimiter } from '../middleware/rateLimiter.js'; 
 
 const app = express();
 
 const port = process.env.PORT || 5001;
+
+const __dirname = path.resolve()
 
 
 // middleware
@@ -45,6 +48,10 @@ app.use(express.json()); // this is saying to use the express.json() middleware,
 app.use(rateLimiter);
 
 // middleware gives details on the types of requests sent to the server and the url's. 
+
+if(process.env.NODE_ENV !== "production") {
+  app.use(cors({origin: "http://localhost:5173"}))
+} 
 
 
 // === Basic server testing === //
@@ -62,6 +69,18 @@ connectDB().then( () => {
 app.use("/api/notes", notesRoutes);
 // because "api/notes" is common in all the below routes, I am saying to use that in notesRoutes
 // ("what I want to take and implement", [in this file]) 
+
+
+if(process.env.NODE_ENV === "production") {
+
+  app.use(express.static(path.join(__dirname, "../frontend/dist")))
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"))
+})
+
+}
+
 
 
 // === Contact Section === //
