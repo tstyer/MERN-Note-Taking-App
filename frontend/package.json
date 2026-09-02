@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "full-stack-mern-note-app": "file:.."
+  }
+}
